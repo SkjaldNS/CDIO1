@@ -19,6 +19,17 @@ public class Test {
     double mean = 0.0;
     double standardDeviation = 0.0;
 }
+public class rollArray {
+    //used to populate an n-size array with die rolls.
+    public static int[] addRollsArray (int [] array) {
+        for (int i = 0; i < length.array; i++) {
+            //This line is dependant on the implementation of roll() function.
+            array[i]=roll();
+        }
+        return array;
+    }
+
+}
 public class DateSetEvaluation {
     //Goes through every second element in the array, and compares it to the next element. If they're identical, it increases count. In the end, it return
     //the total amount of doubles from the test set.
