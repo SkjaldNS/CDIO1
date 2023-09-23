@@ -54,6 +54,7 @@ public class DateSetEvaluation {
         meanResult = sum/elements;
         return meanResult;
     }
+    //Calculates the standard deviation of an array by looking at the number of elements and the mean (via calCMean). Returns standard deviation as a double.
     public static double calcStandardDeviation(int [] array){
         int elements = array.length;
         double meanResult = calcMean(array);
