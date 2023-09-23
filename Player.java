@@ -4,19 +4,14 @@ public class Player {
     public int sum;
 
     public Player(String name) {
-        this.name = "";
+        this.name = name;
         this.sum = 0;
     }
     
-    // Name
-    public setName(String name) {
-        this.name = name;
-    }
     public String getName() {
         return(name);
     }
     
-    // Sum
     public void setSum(int sum) {
         this.sum = sum;
     }
@@ -28,4 +23,6 @@ public class Player {
     public int getSum() {
         return (sum);
     }
+    // Player player1 = new Player("David");
+    // System.out.println(player1.getName());
 }
