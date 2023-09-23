@@ -1,5 +1,5 @@
 public class Test {
-    String name = "";
+    private String name = "";
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
     private int n = 0;
     //Variable for storing all rolls generated during test.
