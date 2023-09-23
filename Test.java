@@ -101,7 +101,7 @@ public class Test {
     }
     private class EvaluateTime {
         private static double[] timeData (int n) {
-
+            //to be added. Should use java.time.Duration and/or java.time.Instant.
         }
         private static double meanTime(double [] array){
             //to be added
