@@ -6,7 +6,7 @@ public class Test {
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
     private int n = 0;
     //Variable for storing all rolls generated during test.
-    private int diceRolls = new int [n];
+    private int diceRolls[] = new int [n];
     //countDoubles and rollSumx are used to track test analysis.
     private int countDoubles = 0;
     private int rollSum2 = 0;
@@ -100,16 +100,24 @@ public class Test {
         }
     }
     private class EvaluateTime {
-        private static double[] timeData (int n) {
-            //to be added. Should use java.time.Duration and/or java.time.Instant.
+        private static long[] timeData (int n) {
+            //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
+            long timeArray[] = new double [n];
+            for (int i = 0; i < timeArray.length; i++) {
+                long startTime = System.currentTimeMillis();
+                int rollOne = rollDie();
+                int rollTwo = rollDie();
+                Long endTime = System.currentTimeMillis();
+                timeArray[i]=endTime-startTime;
+            }
         }
-        private static double meanTime(double [] array){
+        private static double meanTime(long [] array){
             //to be added
         }
-        private static double lowTime (double [] array){
+        private static double lowTime (long [] array){
             //to be added
         }
-        private static double highTime (double [] array){
+        private static double highTime (long [] array){
             //to be added
         }
         
