@@ -38,62 +38,62 @@ public class Test {
         this.mean = calcMean (this.diceRolls);
         this.standardDeviation = calcStandardDeviation(this.diceRolls);
     }
-}
-public class rollArray {
-    //used to populate an n-size array with die rolls.
-    public static int[] addRollsArray (int [] array) {
-        for (int i = 0; i < length.array; i++) {
-            //This line is dependant on the implementation of roll() function.
-            array[i]=roll();
-        }
-        return array;
-    }
 
-}
-public class DateSetEvaluation {
-    //Goes through every second element in the array, and compares it to the next element. If they're identical, it increases count. In the end, it return
-    //the total amount of doubles from the test set.
-    public static int countDoubles (int [] array){
-        int count = 0;
-        for (int i = 0; i < array.length; i=i+2) {
-            if (array[i]==array[i+1]){
-                count++;
+    private static class rollArray {
+        //used to populate an n-size array with die rolls.
+        private static int[] addRollsArray (int [] array) {
+            for (int i = 0; i < length.array; i++) {
+             //This line is dependant on the implementation of roll() function.
+                array[i]=roll();
             }
-            
+            return array;
         }
-        return count;
+
     }
-    //Goes through every second element in the array, adds the next element and compares it so sum. If they're identical, it increases count. In the end, it returns
-    //the total amount of rolls of a given sum from the dataset.
-    public static int countSum (int [] array, int sum) {
-        int count = 0;
-        for (int i = 0; i < array.length; i = i+2){
-            if (array[i]+array[i+1]==sum){
-                count++;
+    private static class DateSetEvaluation {
+        //Goes through every second element in the array, and compares it to the next element. If they're identical, it increases count. In the end, it return
+        //the total amount of doubles from the test set.
+        private static int countDoubles (int [] array){
+            int count = 0;
+            for (int i = 0; i < array.length; i=i+2) {
+                if (array[i]==array[i+1]){
+                    count++;
+                }           
+                }
+            return count;
+        }
+        //Goes through every second element in the array, adds the next element and compares it so sum. If they're identical, it increases count. In the end, it returns
+        //the total amount of rolls of a given sum from the dataset.
+        private static int countSum (int [] array, int sum) {
+            int count = 0;
+            for (int i = 0; i < array.length; i = i+2){
+                if (array[i]+array[i+1]==sum){
+                    count++;
+                }
             }
+            return count;
         }
-        return count;
-    }
-    //Takes the sum of each element in the array, divides it by the number of elements and returns the mean of the array as a double.
-    public static double calcMean(int [] array){
-        int elements = array.length;
-        double sum = 0.0;
-        double meanResult = 0.0;
-        for (int i = 0; i < array.length; i++){
-            sum = sum + array[i];
+        //Takes the sum of each element in the array, divides it by the number of elements and returns the mean of the array as a double.
+        private static double calcMean(int [] array){
+            int elements = array.length;
+            double sum = 0.0;
+            double meanResult = 0.0;
+            for (int i = 0; i < array.length; i++){
+                sum = sum + array[i];
+            }
+            meanResult = sum/elements;
+            return meanResult;
         }
-        meanResult = sum/elements;
-        return meanResult;
-    }
-    //Calculates the standard deviation of an array by looking at the number of elements and the mean (via calCMean). Returns standard deviation as a double.
-    public static double calcStandardDeviation(int [] array){
-        int elements = array.length;
-        double meanResult = calcMean(array);
-        double sumSquared = 0.0;
-        for (int i = 0; i < array.length ; i++){
-            sumSquared =sumSquared + (Math.pow(array[i]-meanResult,2));
+        //Calculates the standard deviation of an array by looking at the number of elements and the mean (via calCMean). Returns standard deviation as a double.
+        private static double calcStandardDeviation(int [] array){
+            int elements = array.length;
+            double meanResult = calcMean(array);
+            double sumSquared = 0.0;
+            for (int i = 0; i < array.length ; i++){
+                sumSquared =sumSquared + (Math.pow(array[i]-meanResult,2));
+            }
+            double standardDeviationResult = Math.sqrt(sumSquared/elements);
+            return standardDeviationResult;
         }
-        double standardDeviationResult = Math.sqrt(sumSquared/elements);
-        return standardDeviationResult;
     }
-}
+}    
