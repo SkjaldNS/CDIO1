@@ -16,6 +16,8 @@ public class Test {
     int rollSum10 = 0;
     int rollSum11 = 0;
     int rollSum12 = 0;
+    double mean = 0.0;
+    double standardDeviation = 0.0;
 }
 public class DateSetEvaluation {
     //Goes through every second element in the array, and compares it to the next element. If they're identical, it increases count. In the end, it return
