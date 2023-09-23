@@ -4,9 +4,9 @@ import java.time.Instant;
 public class TestDiceRolls {
     private String name = "";
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
-    private int n = 0;
+    private int numberOfRolls = 0;
     //Variable for storing all rolls generated during test.
-    private int diceRolls[] = new int [n];
+    private int diceRolls[];
     //countDoubles and rollSumx are used to track test analysis.
     private int countDoubles = 0;
     private int rollSum2 = 0;
@@ -22,9 +22,9 @@ public class TestDiceRolls {
     private int rollSum12 = 0;
     private double mean = 0.0;
     private double standardDeviation = 0.0;
-    public TestDiceRolls (String name, int n){
+    private TestDiceRolls (String name, int n){
         this.name = name;
-        this.n = n;
+        this.numberOfRolls = n;
         this.diceRolls = addRollsArray(new int [n]);
         this.countDoubles = countDoubles (this.diceRolls);
         this.rollSum2 = countSum (this.diceRolls, 2);
@@ -101,6 +101,21 @@ public class TestDiceRolls {
     
 }
 public class TestTime {
+    private String name;
+    private int numberOfRolls = 0;
+    private double[] timeDataSet;
+    private double meanTime = 0.0; 
+    private double lowestTime;
+    private double highestTime;
+    private TestTime (String name, int n){
+        this.name = name;
+        this.numberOfRolls = n;
+        this.timeDataSet = timeData(n);
+        this.meanTime = meanTime(this.timeDataSet);
+        this.lowestTime = lowTime(this.TimeDataSet);
+        this.highestTime = highTime(this.TimeDataSet);
+    }
+
     private class EvaluateTime {
         private static double[] timeData (int n) {
             //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
