@@ -17,3 +17,17 @@ public class Test {
     int rollSum11 = 0;
     int rollSum12 = 0;
 }
+public class DateSetEvaluation {
+    //Goes through every second element in the array, and compares it to the next element. If they're identical, it increases count. In the end, it return
+    //the total amount of doubles from the test set.
+    public static int countDoubles (int [] array){
+        int count = 0;
+        for (int i = 0; i < array.length; i=i+2) {
+            if (array[i]==array[i+1]){
+                count++;
+            }
+            
+        }
+        return count;
+    }
+}
