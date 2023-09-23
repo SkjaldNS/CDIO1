@@ -54,4 +54,14 @@ public class DateSetEvaluation {
         meanResult = sum/elements;
         return meanResult;
     }
+    public static double calcStandardDeviation(int [] array){
+        int elements = array.length;
+        double meanResult = calcMean(array);
+        double sumSquared = 0.0;
+        for (int i = 0; i < array.length ; i++){
+            sumSquared =sumSquared + (Math.pow(array[i]-meanResult,2));
+        }
+        double standardDeviationResult = Math.sqrt(sumSquared/elements);
+        return standardDeviationResult;
+    }
 }
