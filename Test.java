@@ -121,7 +121,12 @@ public class Test {
             return (sumOfTime/elements);
         }
         private static double lowTime (double [] array){
-            //to be added
+            double low = array[0];
+            for (int i = 0; i < array.length; i++)
+                if(array[i] < low) {
+                    low = array[i];
+                }
+            return low;    
         }
         private static double highTime (double [] array){
             //to be added
