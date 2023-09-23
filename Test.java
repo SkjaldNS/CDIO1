@@ -47,8 +47,8 @@ public class TestDiceRolls {
         +"The sum of dice rolls equal to 3 were "+testDiceRollsObj.rollSum3+".\n"+"The sum of dice rolls equal to 4 were "+testDiceRollsObj.rollSum4+".\n"+"The sum of dice rolls equal to 5 were "+testDiceRollsObj.rollSum5+".\n"
         +"The sum of dice rolls equal to 6 were "+testDiceRollsObj.rollSum6+".\n"+"The sum of dice rolls equal to 7 were "+testDiceRollsObj.rollSum7+".\n"+"The sum of dice rolls equal to 8 were "+testDiceRollsObj.rollSum8+".\n"
         +"The sum of dice rolls equal to 9 were "+testDiceRollsObj.rollSum9+".\n"+"The sum of dice rolls equal to 10 were "+testDiceRollsObj.rollSum10+".\n"+"The sum of dice rolls equal to 11 were "+testDiceRollsObj.rollSum11+".\n"
-        +"The sum of dice rolls equal to 12 were "+testDiceRollsObj.rollSum12+".\n"+"The mean value of the dice rolls were "+testDiceRollsObj.mean+".\n"
-        );
+        +"The sum of dice rolls equal to 12 were "+testDiceRollsObj.rollSum12+".\n"+"The mean value of the dice rolls was "+testDiceRollsObj.mean+".\n"+"The standard deviation was "+testDiceRollsObj.standardDeviation+".\n");
+        return testResults;    
     }
     //used to populate an n-size array with die rolls.
     private static int[] addRollsArray (int [] array) {
