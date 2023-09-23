@@ -1,3 +1,6 @@
+import java.timeDuration;
+import java.time.Instant;
+
 public class Test {
     private String name = "";
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
@@ -44,7 +47,7 @@ public class Test {
         private static int[] addRollsArray (int [] array) {
             for (int i = 0; i < length.array; i++) {
              //This line is dependant on the implementation of roll() function.
-                array[i]=roll();
+                array[i]=rollDie();
             }
             return array;
         }
@@ -96,4 +99,16 @@ public class Test {
             return standardDeviationResult;
         }
     }
+    private class EvaluateTime {
+        private static double meanTime(int n){
+            //to be added
+        }
+        private static double lowTime (int n){
+            //to be added
+        }
+        private static double highTime (int n){
+            //to be added
+        }
+        
+    }    
 }    
