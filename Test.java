@@ -30,4 +30,15 @@ public class DateSetEvaluation {
         }
         return count;
     }
+    //Goes through every second element in the array, adds the next element and compares it so sum. If they're identical, it increases count. In the end, it returns
+    //the total amount of rolls of a given sum from the dataset.
+    public static int countSum (int [] array, int sum) {
+        int count = 0;
+        for (int i = 0; i < array.length; i = i+2){
+            if (array[i]+array[i+1]==sum){
+                count++;
+            }
+        }
+        return count;
+    }
 }
