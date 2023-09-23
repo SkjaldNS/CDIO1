@@ -117,9 +117,14 @@ public class TestTime {
         this.name = name;
         this.numberOfRolls = n;
         this.timeDataSet = timeData(n);
-        this.meanTime = meanTime(this.timeDataSet);
-        this.lowestTime = lowTime(this.TimeDataSet);
-        this.highestTime = highTime(this.TimeDataSet);
+        this.meanTime = truncateDecimal(meanTime(this.timeDataSet),2);
+        this.lowestTime = truncateDecimal(lowTime(this.TimeDataSet),2);
+        this.highestTime = truncateDecimal(highTime(this.TimeDataSet),2);
+    }
+    public static String executeTimeTest(String name, int n){
+        var testTimeObj = new TestTime(name, n);
+        String testResults = "With "+n+" sets of rolls, the mean time to roll two dice was "+testTimeObj.meanTime+"ms, the lowest time was "+testTimeObj.lowTime+"ms, and the highest time was "+testTimeObj.highTime+"ms.";
+        return testResults;
     }
     private static double[] timeData (int n) {
         //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
