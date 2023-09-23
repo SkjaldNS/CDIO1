@@ -90,7 +90,7 @@ class TestDiceRolls {
         for (int i = 0; i < array.length; i++){
             sum = sum + array[i];
         }
-        meanResult = sum/elements;
+        meanResult = sum/(elements/2);
         return meanResult;
     }
     //Calculates the standard deviation of an array by looking at the number of elements and the mean (via calCMean). Returns standard deviation as a double.
