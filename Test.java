@@ -43,4 +43,15 @@ public class DateSetEvaluation {
         }
         return count;
     }
+    //Takes the sum of each element in the array, divides it by the number of elements and returns the mean of the array as a double.
+    public static double calcMean(int [] array){
+        int elements = array.length;
+        double sum = 0.0;
+        double meanResult = 0.0;
+        for (int i = 0; i < array.length; i++){
+            sum = sum + array[i];
+        }
+        meanResult = sum/elements;
+        return meanResult;
+    }
 }
