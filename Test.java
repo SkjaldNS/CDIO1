@@ -1,23 +1,43 @@
 public class Test {
+    String name = "";
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
-    int n = 2000;
+    private int n = 2000;
     //Variable for storing all rolls generated during test.
-    int diceRolls = new int [n];
+    private int diceRolls = new int [n];
     //countDoubles and rollSumx are used to track test analysis.
-    int countDoubles = 0;
-    int rollSum2 = 0;
-    int rollSum3 = 0;
-    int rollSum4 = 0;
-    int rollSum5 = 0;
-    int rollSum6 = 0;
-    int rollSum7 = 0;
-    int rollSum8 = 0;
-    int rollSum9 = 0;
-    int rollSum10 = 0;
-    int rollSum11 = 0;
-    int rollSum12 = 0;
-    double mean = 0.0;
-    double standardDeviation = 0.0;
+    private int countDoubles = 0;
+    private int rollSum2 = 0;
+    private int rollSum3 = 0;
+    private int rollSum4 = 0;
+    private int rollSum5 = 0;
+    private int rollSum6 = 0;
+    private int rollSum7 = 0;
+    private int rollSum8 = 0;
+    private int rollSum9 = 0;
+    private int rollSum10 = 0;
+    private int rollSum11 = 0;
+    private int rollSum12 = 0;
+    private double mean = 0.0;
+    private double standardDeviation = 0.0;
+    public Test (String name, int n){
+        this.name = name;
+        this.n = n;
+        this.diceRolls = addRollsArray(new int [n]);
+        this.countDoubles = countDoubles (this.diceRolls);
+        this.rollSum2 = countSum (this.diceRolls, 2);
+        this.rollSum3 = countSum (this.diceRolls, 3);
+        this.rollSum4 = countSum (this.diceRolls, 4);
+        this.rollSum5 = countSum (this.diceRolls, 5);
+        this.rollSum6 = countSum (this.diceRolls, 6);
+        this.rollSum7 = countSum (this.diceRolls, 7);
+        this.rollSum8 = countSum (this.diceRolls, 8);
+        this.rollSum9 = countSum (this.diceRolls, 9);
+        this.rollSum10 = countSum (this.diceRolls, 10);
+        this.rollSum11 = countSum (this.diceRolls, 11);
+        this.rollSum12 = countSum (this.diceRolls, 12);
+        this.mean = calcMean (this.diceRolls);
+        this.standardDeviation = calcStandardDeviation(this.diceRolls);
+    }
 }
 public class rollArray {
     //used to populate an n-size array with die rolls.
