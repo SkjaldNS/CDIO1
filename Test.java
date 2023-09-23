@@ -110,9 +110,10 @@ public class Test {
                 Long endTime = System.currentTimeMillis();
                 timeArray[i]=endTime-startTime;
             }
+            return timeArray;
         }
         private static double meanTime(long [] array){
-            //to be added
+            
         }
         private static double lowTime (long [] array){
             //to be added
