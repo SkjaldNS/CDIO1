@@ -44,9 +44,11 @@ public class TestDiceRolls {
     private static class rollArray {
         //used to populate an n-size array with die rolls.
         private static int[] addRollsArray (int [] array) {
+            //Need to create an object first?
+            Die dieObj = new Die();
             for (int i = 0; i < length.array; i++) {
              //This line is dependant on the implementation of roll() function.
-                array[i]=rollDie();
+                array[i]=dieObj.rollDie();
             }
             return array;
         }
@@ -115,49 +117,48 @@ public class TestTime {
         this.lowestTime = lowTime(this.TimeDataSet);
         this.highestTime = highTime(this.TimeDataSet);
     }
-
-    private class EvaluateTime {
-        private static double[] timeData (int n) {
-            //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
-            double timeArray[] = new double [n];
-            for (int i = 0; i < timeArray.length; i++) {
-                double startTime = System.currentTimeMillis();
-                int rollOne = rollDie();
-                int rollTwo = rollDie();
-                double endTime = System.currentTimeMillis();
-                timeArray[i]=endTime-startTime;
+    private static double[] timeData (int n) {
+        //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
+        double timeArray[] = new double [n];
+        //Need to create an object - maybe?
+        Die dieObj = new Die();
+        for (int i = 0; i < timeArray.length; i++) {
+            double startTime = System.currentTimeMillis();
+            //references created object
+            int rollOne = dieObj.rollDie();
+            int rollTwo = die.Obj.rollDie();
+            double endTime = System.currentTimeMillis();
+            timeArray[i]=endTime-startTime;
+        }
+        return timeArray;
+    }
+    private static double meanTime(double [] array){
+        double sumOfTime = 0.0;
+        int elements = array.length;
+        for (int i = 0; i < array.length; i++){
+            sumOfTime = sumOfTime+array[i];
+        }
+        return (sumOfTime/elements);
+    }
+    private static double lowTime (double [] array){
+        //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
+        double low = array[0];
+        //Skips the first element, since we have already set it above.
+        for (int i = 1; i < array.length; i++)
+            if(array[i] < low) {
+                low = array[i];
             }
-            return timeArray;
-        }
-        private static double meanTime(double [] array){
-            double sumOfTime = 0.0;
-            int elements = array.length;
-            for (int i = 0; i < array.length; i++){
-                sumOfTime = sumOfTime+array[i];
+        return low;    
+    }
+    private static double highTime (double [] array){
+        //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
+        double high = array[0];
+        //Skips the first element, since we have already set it above.
+        for (int i = 1 ; i < array.length; i++) {
+            if(array[i] > high){
+                high = array[i];
             }
-            return (sumOfTime/elements);
         }
-        private static double lowTime (double [] array){
-            //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
-            double low = array[0];
-            //Skips the first element, since we have already set it above.
-            for (int i = 1; i < array.length; i++)
-                if(array[i] < low) {
-                    low = array[i];
-                }
-            return low;    
-        }
-        private static double highTime (double [] array){
-            //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
-            double high = array[0];
-            //Skips the first element, since we have already set it above.
-            for (int i = 1 ; i < array.length; i++) {
-                if(array[i] > high){
-                    high = array[i];
-                }
-            }
-            return high;
-        }
-        
+        return high;
     }    
 }    
