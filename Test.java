@@ -121,15 +121,25 @@ public class Test {
             return (sumOfTime/elements);
         }
         private static double lowTime (double [] array){
+            //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
             double low = array[0];
-            for (int i = 0; i < array.length; i++)
+            //Skips the first element, since we have already set it above.
+            for (int i = 1; i < array.length; i++)
                 if(array[i] < low) {
                     low = array[i];
                 }
             return low;    
         }
         private static double highTime (double [] array){
-            //to be added
+            //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
+            double high = array[0];
+            //Skips the first element, since we have already set it above.
+            for (int i = 1 ; i < array.length; i++) {
+                if(array[i] > high){
+                    high = array[i];
+                }
+            }
+            return high;
         }
         
     }    
