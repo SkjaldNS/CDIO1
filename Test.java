@@ -100,13 +100,16 @@ public class Test {
         }
     }
     private class EvaluateTime {
-        private static double meanTime(int n){
+        private static double[] timeData (int n) {
+
+        }
+        private static double meanTime(double [] array){
             //to be added
         }
-        private static double lowTime (int n){
+        private static double lowTime (double [] array){
             //to be added
         }
-        private static double highTime (int n){
+        private static double highTime (double [] array){
             //to be added
         }
         
