@@ -100,25 +100,30 @@ public class Test {
         }
     }
     private class EvaluateTime {
-        private static long[] timeData (int n) {
+        private static double[] timeData (int n) {
             //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
-            long timeArray[] = new double [n];
+            double timeArray[] = new double [n];
             for (int i = 0; i < timeArray.length; i++) {
-                long startTime = System.currentTimeMillis();
+                double startTime = System.currentTimeMillis();
                 int rollOne = rollDie();
                 int rollTwo = rollDie();
-                Long endTime = System.currentTimeMillis();
+                double endTime = System.currentTimeMillis();
                 timeArray[i]=endTime-startTime;
             }
             return timeArray;
         }
-        private static double meanTime(long [] array){
-            
+        private static double meanTime(double [] array){
+            double sumOfTime = 0.0;
+            int elements = array.length;
+            for (int i = 0; i < array.length; i++){
+                sumOfTime = sumOfTime+array[i];
+            }
+            return (sumOfTime/elements);
         }
-        private static double lowTime (long [] array){
+        private static double lowTime (double [] array){
             //to be added
         }
-        private static double highTime (long [] array){
+        private static double highTime (double [] array){
             //to be added
         }
         
