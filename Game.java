@@ -14,12 +14,13 @@ public class Game {
         Player player2 = new Player(name2);
 
         //Showing start values.
-        System.out.println("Player 1: " + player1.getName() + " " + "Start sum: " + player1.getSum());
-        System.out.println("Player 2: " + player2.getName() + " " + "Start sum: " + player2.getSum());
+        System.out.println("Player 1: " + player1.getName() + " " + "Start sum: " + player1.getSum() + System.lineSeparator());
+        System.out.println("Player 2: " + player2.getName() + " " + "Start sum: " + player2.getSum() + System.lineSeparator());
 
         //Showing game rules:
         System.out.println("""
 The game rules are:
+
 - The die has to be a six sided die (D6).
 - The sum of each roll is added to the individual players points.
 - The game has to support two players.
