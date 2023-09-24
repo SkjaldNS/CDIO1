@@ -21,10 +21,6 @@ public class Game {
         System.out.println("""
 The game rules are:
 
-- The die has to be a six sided die (D6).
-- The sum of each roll is added to the individual players points.
-- The game has to support two players.
-- The game has to support rolling two D6.
 - A turn is one player rolling two D6 at once.
 - A round consists of both players having one turn each.
 - During a turn the combined sum of the dice roll is added to the player’s total points.
