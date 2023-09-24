@@ -13,6 +13,8 @@ public class Game {
         var name2 = scanner.nextLine();
         Player player2 = new Player(name2);
 
-        System.out.println(player1.getName() + player2.getName());
+        //Showing start values.
+        System.out.println("Player 1: " + player1.getName() + " " + "Start sum: " + player1.getSum());
+        System.out.println("Player 2: " + player2.getName() + " " + "Start sum: " + player2.getSum());
     }
 }
