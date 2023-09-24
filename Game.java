@@ -12,5 +12,7 @@ public class Game {
         System.out.println("What's the name of player2? ");
         var name2 = scanner.nextLine();
         Player player2 = new Player(name2);
+
+        System.out.println(player1.getName() + player2.getName());
     }
 }
