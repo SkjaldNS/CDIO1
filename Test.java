@@ -1,7 +1,7 @@
-import java.timeDuration;
+import java.time.Duration;
 import java.time.Instant;
 
-public class TestDiceRolls {
+class TestDiceRolls {
     private String name = "";
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
     private int numberOfRolls = 0;
@@ -54,7 +54,7 @@ public class TestDiceRolls {
     private static int[] addRollsArray (int [] array) {
         //Need to create an object first?
         Die dieObj = new Die();
-        for (int i = 0; i < length.array; i++) {
+        for (int i = 0; i < array.length; i++) {
             //This line is dependant on the implementation of roll() function.
             array[i]=dieObj.rollDie();
         }
@@ -90,7 +90,7 @@ public class TestDiceRolls {
         for (int i = 0; i < array.length; i++){
             sum = sum + array[i];
         }
-        meanResult = sum/elements;
+        meanResult = sum/(elements/2);
         return meanResult;
     }
     //Calculates the standard deviation of an array by looking at the number of elements and the mean (via calCMean). Returns standard deviation as a double.
@@ -106,10 +106,10 @@ public class TestDiceRolls {
     }       
 }
 
-public class TestTime {
+class TestTime {
     private String name;
     private int numberOfRolls = 0;
-    private double[] timeDataSet;
+    private long[] timeDataSet;
     private double meanTime = 0.0; 
     private double lowestTime;
     private double highestTime;
@@ -117,31 +117,31 @@ public class TestTime {
         this.name = name;
         this.numberOfRolls = n;
         this.timeDataSet = timeData(n);
-        this.meanTime = truncateDecimal(meanTime(this.timeDataSet),2);
-        this.lowestTime = truncateDecimal(lowTime(this.TimeDataSet),2);
-        this.highestTime = truncateDecimal(highTime(this.TimeDataSet),2);
+        this.meanTime = meanTime(this.timeDataSet);
+        this.lowestTime = lowTime(this.timeDataSet);
+        this.highestTime = highTime(this.timeDataSet);
     }
     public static String executeTimeTest(String name, int n){
         var testTimeObj = new TestTime(name, n);
-        String testResults = "With "+n+" sets of rolls, the mean time to roll two dice was "+testTimeObj.meanTime+"ms, the lowest time was "+testTimeObj.lowTime+"ms, and the highest time was "+testTimeObj.highTime+"ms.";
+        String testResults = "With "+n+" sets of rolls, the mean time to roll two dice was "+testTimeObj.meanTime+"ms, the lowest time was "+testTimeObj.lowestTime+"ms, and the highest time was "+testTimeObj.highestTime+"ms.";
         return testResults;
     }
-    private static double[] timeData (int n) {
+    private static long[] timeData (int n) {
         //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
-        double timeArray[] = new double [n];
+        long timeArray[] = new long [n];
         //Need to create an object - maybe?
         Die dieObj = new Die();
         for (int i = 0; i < timeArray.length; i++) {
-            double startTime = System.currentTimeMillis();
+            long startTime = System.currentTimeMillis();
             //references created object
             int rollOne = dieObj.rollDie();
-            int rollTwo = die.Obj.rollDie();
-            double endTime = System.currentTimeMillis();
+            int rollTwo = dieObj.rollDie();
+            long endTime = System.currentTimeMillis();
             timeArray[i]=endTime-startTime;
         }
         return timeArray;
     }
-    private static double meanTime(double [] array){
+    private static double meanTime(long [] array){
         double sumOfTime = 0.0;
         int elements = array.length;
         for (int i = 0; i < array.length; i++){
@@ -149,7 +149,7 @@ public class TestTime {
         }
         return (sumOfTime/elements);
     }
-    private static double lowTime (double [] array){
+    private static double lowTime (long [] array){
         //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
         double low = array[0];
         //Skips the first element, since we have already set it above.
@@ -159,7 +159,7 @@ public class TestTime {
             }
         return low;    
     }
-    private static double highTime (double [] array){
+    private static double highTime (long [] array){
         //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
         double high = array[0];
         //Skips the first element, since we have already set it above.
