@@ -15,10 +15,11 @@ public class Die {
     }
     public int[] getDie(){
         var die = new Die();
-        int dieArray[] = new int[2];
-        for (int element: dieArray){
+        int dieArray[] = new int[3];
+        for (int i = 0; i < dieArray.length-1; i++){
             dieArray[element] = rollDie();
         }
+        dieArray[2] = dieArray[0]+dieArray[1];
         return dieArray;
     }
 }
