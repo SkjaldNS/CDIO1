@@ -2,8 +2,13 @@ import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args) {
+        //Player player1;
+        //Player player2;
         Scanner scanner = new java.util.Scanner(System.in);
-        
+        createPlayer();
+    }
+
+    public createPlayer(){
         //Taking the names of players.
         System.out.println("What's the name of player1? ");
         var name1 = scanner.nextLine();
