@@ -4,9 +4,8 @@ class WinCondition{
     public int PointPlayer2 = 0;
     public boolean SuddenDeath = 0;
     public String Winner;
-
-    public boolean winCon(){
-        
+  
+    public boolean winCon(){        
         PointPlayer1 = player1.getSum();
         PointPlayer2 = player2.getSum();
 
@@ -26,15 +25,10 @@ class WinCondition{
                     SuddenDeath = true;
                 }
                 return WinnerFound;
-
             }
         }
         else{
             return false;
         }
-
-
-
     }
-    
 }
