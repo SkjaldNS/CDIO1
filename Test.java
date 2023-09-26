@@ -105,22 +105,20 @@ class TestDiceRolls {
 }
 
 class TestTime {
-    private String name;
     private int numberOfRolls = 0;
     private long[] timeDataSet;
     private double meanTime = 0.0; 
     private double lowestTime;
     private double highestTime;
-    private TestTime (String name, int n){
-        this.name = name;
+    private TestTime (int n){
         this.numberOfRolls = n;
         this.timeDataSet = timeData(n);
         this.meanTime = meanTime(this.timeDataSet);
         this.lowestTime = lowTime(this.timeDataSet);
         this.highestTime = highTime(this.timeDataSet);
     }
-    public static String executeTimeTest(String name, int n){
-        var testTimeObj = new TestTime(name, n);
+    public static String executeTimeTest(int n){
+        var testTimeObj = new TestTime(n);
         String testResults = "With "+n+" sets of rolls, the mean time to roll two dice was "+testTimeObj.meanTime+"ms, the lowest time was "+testTimeObj.lowestTime+"ms, and the highest time was "+testTimeObj.highestTime+"ms.";
         return testResults;
     }
