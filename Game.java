@@ -15,7 +15,7 @@ public class Game {
             System.out.println(result);
             result = TestTime.executeTimeTest(test);
             System.out.println(result);
-            }
+        }
         else {
             //Showing start values.
             System.out.println("Player 1: " + player1.getName() + " " + "Start sum: " + player1.getSum() + System.lineSeparator());
