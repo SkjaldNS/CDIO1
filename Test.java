@@ -2,7 +2,6 @@ import java.time.Duration;
 import java.time.Instant;
 
 class TestDiceRolls {
-    private String name = "";
     //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
     private int numberOfRolls = 0;
     //Variable for storing all rolls generated during test.
@@ -22,8 +21,7 @@ class TestDiceRolls {
     private int rollSum12 = 0;
     private double mean = 0.0;
     private double standardDeviation = 0.0;
-    private TestDiceRolls (String name, int n){
-        this.name = name;
+    private TestDiceRolls (int n){
         this.numberOfRolls = n*2;
         this.diceRolls = addRollsArray(new int [n*2]);
         this.countDoubles = countDoubles (this.diceRolls);
@@ -41,8 +39,8 @@ class TestDiceRolls {
         this.mean = calcMean (this.diceRolls);
         this.standardDeviation = calcStandardDeviation(this.diceRolls);
     }
-    public static String executeDiceRollsTest (String name, int n){
-        var testDiceRollsObj = new TestDiceRolls(name,n);
+    public static String executeDiceRollsTest (int n){
+        var testDiceRollsObj = new TestDiceRolls(n);
         String testResults = ((n)+" dice rolls were made.\n In total, "+testDiceRollsObj.countDoubles+" doubles were rolled.\n The sum of dice rolls equal to 2 were "+testDiceRollsObj.rollSum2+".\n"
         +"The sum of dice rolls equal to 3 were "+testDiceRollsObj.rollSum3+".\n"+"The sum of dice rolls equal to 4 were "+testDiceRollsObj.rollSum4+".\n"+"The sum of dice rolls equal to 5 were "+testDiceRollsObj.rollSum5+".\n"
         +"The sum of dice rolls equal to 6 were "+testDiceRollsObj.rollSum6+".\n"+"The sum of dice rolls equal to 7 were "+testDiceRollsObj.rollSum7+".\n"+"The sum of dice rolls equal to 8 were "+testDiceRollsObj.rollSum8+".\n"
