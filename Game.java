@@ -11,10 +11,9 @@ public class Game {
     
             System.out.println("Please enter the wanted numbers of test rolls: ");
             int test = scanner.nextInt();
-            String result = TestDiceRolls.executeDiceRollsTest(test);
-            System.out.println(result);
-            result = TestTime.executeTimeTest(test);
-            System.out.println(result);
+            String resultRoll = TestDiceRolls.executeDiceRollsTest(test);           
+            resultTime = TestTime.executeTimeTest(test);
+            System.out.println(resultRoll+"\n"+resultTime);
         }
         else {
             //Showing start values.
