@@ -132,6 +132,7 @@ class TestTime {
             //references created object
             int rollOne = dieObj.rollDie();
             int rollTwo = dieObj.rollDie();
+            System.out.println(rollOne+"+"+rollTwo);
             long endTime = System.currentTimeMillis();
             timeArray[i]=endTime-startTime;
         }
