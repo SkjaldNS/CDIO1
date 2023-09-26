@@ -1,8 +1,7 @@
 import java.time.Duration;
 import java.time.Instant;
 
-class TestDiceRolls {
-    //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
+class TestDiceRolls { 
     private int numberOfRolls = 0;
     //Variable for storing all rolls generated during test.
     private int diceRolls[];
@@ -117,11 +116,13 @@ class TestTime {
         this.lowestTime = lowTime(this.timeDataSet);
         this.highestTime = highTime(this.timeDataSet);
     }
+    //Public accessible method to execute a time test.
     public static String executeTimeTest(int n){
         var testTimeObj = new TestTime(n);
         String testResults = "With "+n+" sets of rolls, the mean time to roll two dice was "+testTimeObj.meanTime+"ms, the lowest time was "+testTimeObj.lowestTime+"ms, and the highest time was "+testTimeObj.highestTime+"ms.";
         return testResults;
     }
+    //Method for generating a long array of time data.
     private static long[] timeData (int n) {
         //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
         long timeArray[] = new long [n];
@@ -138,6 +139,7 @@ class TestTime {
         }
         return timeArray;
     }
+    //Finds the mean time of a timeData array.
     private static double meanTime(long [] array){
         double sumOfTime = 0.0;
         int elements = array.length;
@@ -146,6 +148,7 @@ class TestTime {
         }
         return (sumOfTime/elements);
     }
+    //Finds the lowest time value of a timeData array.
     private static double lowTime (long [] array){
         //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
         double low = array[0];
@@ -156,6 +159,7 @@ class TestTime {
             }
         return low;    
     }
+    //Finds the highest time value of a timeData array.
     private static double highTime (long [] array){
         //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
         double high = array[0];
