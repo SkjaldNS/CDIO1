@@ -1,33 +1,30 @@
-class WinCondition{
-    public boolean WinnerFound;
-    public int PointPlayer1 = 0;
-    public int PointPlayer2 = 0;
-    public boolean SuddenDeath = 0;
-    public String Winner;
-  
-    public boolean winCon(){        
-        PointPlayer1 = player1.getSum();
-        PointPlayer2 = player2.getSum();
+class WinCondition {
+    public boolean winnerFound;
+    public int pointPlayer1 = 0;
+    public int pointPlayer2 = 0;
+    public boolean suddenDeath = false;
+    public String winner;
 
-        if(PointPlayer1 > 40 || PointPlayer2 > 40){
-            
-            if(PointPlayer1<PointPlayer2){
-                WinnerFound = true;
-                return WinnerFound;
-            }
-            else if(PointPlayer1>PointPlayer2){
-                WinnerFound = true;
-                return WinnerFound;
-            }
-            else if (PointPlayer1 == PointPlayer2){
-                WinnerFound = false;
-                if(!SuddenDeath){
-                    SuddenDeath = true;
+    public boolean winCon() {
+        pointPlayer1 = player1.getSum();
+        pointPlayer2 = player2.getSum();
+
+        if (pointPlayer1 > 40 || pointPlayer2 > 40) {
+
+            if (pointPlayer1 < pointPlayer2) {
+                winnerFound = true;
+                return winnerFound;
+            } else if (pointPlayer1 > pointPlayer2) {
+                winnerFound = true;
+                return winnerFound;
+            } else if (pointPlayer1 == pointPlayer2) {
+                winnerFound = false;
+                if (!suddenDeath) {
+                    suddenDeath = true;
                 }
-                return WinnerFound;
+                return winnerFound;
             }
-        }
-        else{
+        } else {
             return false;
         }
     }
