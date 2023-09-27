@@ -1,11 +1,18 @@
+import java.util.List;
+
 public class Player {
 
     public String name;
     public int sum;
-
+    public static List instances = new arrayList();
+    
     public Player(String name) {
         this.name = name;
         this.sum = 0;
+        instances.add(new java.lang.ref.WeakReference(0));
+    }
+    public List getInstances() {
+        return(instances);
     }
     
     public String getName() {
