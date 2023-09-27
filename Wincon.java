@@ -5,9 +5,16 @@ class WinCondition {
     public boolean suddenDeath = false;
     public String winner;
 
-    public boolean winCon() {
-        pointPlayer1 = player1.getSum();
-        pointPlayer2 = player2.getSum();
+    public WinCondition(){
+        this.winnerFound=false;
+    }
+    public static boolean getWinCon(WinCondition name){
+        return name.winnerFound;
+    }
+
+    public boolean winCon(Player player1,Player player2) {
+        pointPlayer1 = Player.getSum(player1);
+        pointPlayer2 = Player.getSum(player2);
 
         if (pointPlayer1 > 40 || pointPlayer2 > 40) {
 
@@ -18,14 +25,17 @@ class WinCondition {
                 winnerFound = true;
                 return winnerFound;
             } else if (pointPlayer1 == pointPlayer2) {
-                winnerFound = false;
+                winnerFound = false;              
                 if (!suddenDeath) {
                     suddenDeath = true;
                 }
-                return winnerFound;
+                return winnerFound;               
             }
-        } else {
-            return false;
+            else {
+                return false;
+            }
         }
+        return false;
+
     }
 }
