@@ -1,9 +1,7 @@
 import java.time.Duration;
 import java.time.Instant;
 
-class TestDiceRolls {
-    private String name = "";
-    //Testing parameters, dependent on the implementation of the roll() function. If roll() returns one die, n = 2000 is used to generate 1000 dice roll sets. 
+class TestDiceRolls { 
     private int numberOfRolls = 0;
     //Variable for storing all rolls generated during test.
     private int diceRolls[];
@@ -22,10 +20,9 @@ class TestDiceRolls {
     private int rollSum12 = 0;
     private double mean = 0.0;
     private double standardDeviation = 0.0;
-    private TestDiceRolls (String name, int n){
-        this.name = name;
-        this.numberOfRolls = n;
-        this.diceRolls = addRollsArray(new int [n]);
+    private TestDiceRolls (int n){
+        this.numberOfRolls = n*2;
+        this.diceRolls = addRollsArray(new int [n*2]);
         this.countDoubles = countDoubles (this.diceRolls);
         this.rollSum2 = countSum (this.diceRolls, 2);
         this.rollSum3 = countSum (this.diceRolls, 3);
@@ -41,9 +38,9 @@ class TestDiceRolls {
         this.mean = calcMean (this.diceRolls);
         this.standardDeviation = calcStandardDeviation(this.diceRolls);
     }
-    public static String executeDiceRollsTest (String name, int n){
-        var testDiceRollsObj = new TestDiceRolls(name,n);
-        String testResults = ((n/2)+" dice rolls were made.\n In total, "+testDiceRollsObj.countDoubles+" doubles were rolled.\n The sum of dice rolls equal to 2 were "+testDiceRollsObj.rollSum2+".\n"
+    public static String executeDiceRollsTest (int n){
+        var testDiceRollsObj = new TestDiceRolls(n);
+        String testResults = ((n)+" dice rolls were made.\n In total, "+testDiceRollsObj.countDoubles+" doubles were rolled.\n The sum of dice rolls equal to 2 were "+testDiceRollsObj.rollSum2+".\n"
         +"The sum of dice rolls equal to 3 were "+testDiceRollsObj.rollSum3+".\n"+"The sum of dice rolls equal to 4 were "+testDiceRollsObj.rollSum4+".\n"+"The sum of dice rolls equal to 5 were "+testDiceRollsObj.rollSum5+".\n"
         +"The sum of dice rolls equal to 6 were "+testDiceRollsObj.rollSum6+".\n"+"The sum of dice rolls equal to 7 were "+testDiceRollsObj.rollSum7+".\n"+"The sum of dice rolls equal to 8 were "+testDiceRollsObj.rollSum8+".\n"
         +"The sum of dice rolls equal to 9 were "+testDiceRollsObj.rollSum9+".\n"+"The sum of dice rolls equal to 10 were "+testDiceRollsObj.rollSum10+".\n"+"The sum of dice rolls equal to 11 were "+testDiceRollsObj.rollSum11+".\n"
@@ -107,25 +104,25 @@ class TestDiceRolls {
 }
 
 class TestTime {
-    private String name;
     private int numberOfRolls = 0;
     private long[] timeDataSet;
     private double meanTime = 0.0; 
     private double lowestTime;
     private double highestTime;
-    private TestTime (String name, int n){
-        this.name = name;
+    private TestTime (int n){
         this.numberOfRolls = n;
         this.timeDataSet = timeData(n);
         this.meanTime = meanTime(this.timeDataSet);
         this.lowestTime = lowTime(this.timeDataSet);
         this.highestTime = highTime(this.timeDataSet);
     }
-    public static String executeTimeTest(String name, int n){
-        var testTimeObj = new TestTime(name, n);
+    //Public accessible method to execute a time test.
+    public static String executeTimeTest(int n){
+        var testTimeObj = new TestTime(n);
         String testResults = "With "+n+" sets of rolls, the mean time to roll two dice was "+testTimeObj.meanTime+"ms, the lowest time was "+testTimeObj.lowestTime+"ms, and the highest time was "+testTimeObj.highestTime+"ms.";
         return testResults;
     }
+    //Method for generating a long array of time data.
     private static long[] timeData (int n) {
         //For each element in the array, it records start time in milliseconds, performs two dice rolls, records end time, and adds endTime-startTime to the array
         long timeArray[] = new long [n];
@@ -136,11 +133,13 @@ class TestTime {
             //references created object
             int rollOne = dieObj.rollDie();
             int rollTwo = dieObj.rollDie();
+            System.out.println(rollOne+"+"+rollTwo);
             long endTime = System.currentTimeMillis();
             timeArray[i]=endTime-startTime;
         }
         return timeArray;
     }
+    //Finds the mean time of a timeData array.
     private static double meanTime(long [] array){
         double sumOfTime = 0.0;
         int elements = array.length;
@@ -149,6 +148,7 @@ class TestTime {
         }
         return (sumOfTime/elements);
     }
+    //Finds the lowest time value of a timeData array.
     private static double lowTime (long [] array){
         //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
         double low = array[0];
@@ -159,6 +159,7 @@ class TestTime {
             }
         return low;    
     }
+    //Finds the highest time value of a timeData array.
     private static double highTime (long [] array){
         //automatically add the first element of an array, to ensure that the value of the variable is always from the array.
         double high = array[0];
