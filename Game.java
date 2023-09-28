@@ -8,7 +8,7 @@ public class Game {
         Player player2 = createPlayer(2);
         var scanner = new java.util.Scanner(System.in);
 
-        if (Player.getName(player1).toLowerCase() == "-test") {
+        if (Player.getName(player1).toLowerCase().equals("-test")) {
             System.out.println("Please enter the wanted numbers of test rolls: ");
             int test = scanner.nextInt();
             String resultRoll = TestDiceRolls.executeDiceRollsTest(test);
