@@ -5,7 +5,12 @@ public class Player {
     public String name;
     public int sum;
 
-    public Player(String name) {
+    public Player(String name) 
+        {while(name.equals("")) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Please enter a valid name: ");
+            name = scanner.nextLine();
+        }
         this.name = name;
         this.sum = 0;
     }
