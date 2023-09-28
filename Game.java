@@ -45,18 +45,18 @@ public class Game {
                 Die turnDie = new Die();
                 int dieArray[] = Die.getDie(turnDie);
                 Player.pointSum(dieArray[2],player1);
-                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+" for a total of " + dieArray[2]+"."); 
+                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player1) + ".\n\n"); 
                 System.out.println(Player.getName(player2) + ", to roll the dice, press Enter");
                 scanner.nextLine();
                 turnDie = new Die();
                 dieArray = Die.getDie(turnDie);
                 Player.pointSum(dieArray[2],player2);
-                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+" for a total of " + dieArray[2]+".");
-                System.out.println(Player.getSum(player1)+" "+Player.getSum(player2));
+                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player2) + ".\n\n");
+                System.out.println(Player.getName(player1) + ": " + Player.getSum(player1)+" \n" + Player.getName(player2) + ": " + Player.getSum(player2));
                 winnerGame = winConObj.winCon(player1, player2);
                 //If sudden death is enabled at the end of a round, a message is displayed to the players.
                 if(WinCondition.getSuddenDeath(winConObj) && !suddenDeathMessageDisplayed) {
-                    System.out.println("Sudden death mode is enabled!");
+                    System.out.println("\n Sudden death mode is enabled!");
                     suddenDeathMessageDisplayed = true;
                 }
                   
