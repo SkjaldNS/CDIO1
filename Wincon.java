@@ -19,7 +19,7 @@ class WinCondition {
         pointPlayer1 = Player.getSum(player1);
         pointPlayer2 = Player.getSum(player2);
 
-        if (pointPlayer1 > 40 || pointPlayer2 > 40) {
+        if (pointPlayer1 >= 40 || pointPlayer2 >= 40) {
 
             if (pointPlayer1 < pointPlayer2) {
                 winnerFound = true;
