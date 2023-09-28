@@ -40,7 +40,7 @@ class TestDiceRolls {
     }
     public static String executeDiceRollsTest (int n){
         var testDiceRollsObj = new TestDiceRolls(n);
-        String testResults = ((n)+" dice rolls were made.\n In total, "+testDiceRollsObj.countDoubles+" doubles were rolled.\n The sum of dice rolls equal to 2 were "+testDiceRollsObj.rollSum2+".\n"
+        String testResults = ((n)+" dice rolls were made.\nIn total, "+testDiceRollsObj.countDoubles+" doubles were rolled.\nThe sum of dice rolls equal to 2 were "+testDiceRollsObj.rollSum2+".\n"
         +"The sum of dice rolls equal to 3 were "+testDiceRollsObj.rollSum3+".\n"+"The sum of dice rolls equal to 4 were "+testDiceRollsObj.rollSum4+".\n"+"The sum of dice rolls equal to 5 were "+testDiceRollsObj.rollSum5+".\n"
         +"The sum of dice rolls equal to 6 were "+testDiceRollsObj.rollSum6+".\n"+"The sum of dice rolls equal to 7 were "+testDiceRollsObj.rollSum7+".\n"+"The sum of dice rolls equal to 8 were "+testDiceRollsObj.rollSum8+".\n"
         +"The sum of dice rolls equal to 9 were "+testDiceRollsObj.rollSum9+".\n"+"The sum of dice rolls equal to 10 were "+testDiceRollsObj.rollSum10+".\n"+"The sum of dice rolls equal to 11 were "+testDiceRollsObj.rollSum11+".\n"
@@ -128,12 +128,14 @@ class TestTime {
         long timeArray[] = new long [n];
         //Need to create an object - maybe?
         Die dieObj = new Die();
+        Player player1 = new Player("test");
         for (int i = 0; i < timeArray.length; i++) {
             long startTime = System.currentTimeMillis();
             //references created object
-            int rollOne = dieObj.rollDie();
-            int rollTwo = dieObj.rollDie();
-            System.out.println(rollOne+"+"+rollTwo);
+            Die turnDie = new Die();
+            int dieArray[] = Die.getDie(turnDie);
+            Player.pointSum(dieArray[2],player1);
+            System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player1) + ".\n\n"); 
             long endTime = System.currentTimeMillis();
             timeArray[i]=endTime-startTime;
         }
