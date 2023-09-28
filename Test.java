@@ -128,12 +128,14 @@ class TestTime {
         long timeArray[] = new long [n];
         //Need to create an object - maybe?
         Die dieObj = new Die();
+        Player player1 = new Player("test");
         for (int i = 0; i < timeArray.length; i++) {
             long startTime = System.currentTimeMillis();
             //references created object
-            int rollOne = dieObj.rollDie();
-            int rollTwo = dieObj.rollDie();
-            System.out.println(rollOne+"+"+rollTwo);
+            Die turnDie = new Die();
+            int dieArray[] = Die.getDie(turnDie);
+            Player.pointSum(dieArray[2],player1);
+            System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player1) + ".\n\n"); 
             long endTime = System.currentTimeMillis();
             timeArray[i]=endTime-startTime;
         }
