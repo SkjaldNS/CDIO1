@@ -40,19 +40,19 @@ public class Game {
             boolean suddenDeathMessageDisplayed = false;
             while (!winnerGame){
                 
-                System.out.println(Player.getName(player1) + ", to roll the dice, press Enter");
+                System.out.println(Player.getName(player1) + ", to roll the dice, press Enter:");
                 scanner.nextLine();
                 Die turnDie = new Die();
                 int dieArray[] = Die.getDie(turnDie);
                 Player.pointSum(dieArray[2],player1);
-                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player1) + ".\n\n"); 
-                System.out.println(Player.getName(player2) + ", to roll the dice, press Enter");
+                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player1) + ".\n"); 
+                System.out.println(Player.getName(player2) + ", to roll the dice, press Enter:");
                 scanner.nextLine();
                 turnDie = new Die();
                 dieArray = Die.getDie(turnDie);
                 Player.pointSum(dieArray[2],player2);
-                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player2) + ".\n\n");
-                System.out.println(Player.getName(player1) + ": " + Player.getSum(player1)+" \n" + Player.getName(player2) + ": " + Player.getSum(player2));
+                System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player2) + ".\n");
+                System.out.println("End of round score:\n"+Player.getName(player1) + ": " + Player.getSum(player1)+" \n" + Player.getName(player2) + ": " + Player.getSum(player2)+"\n");
                 winnerGame = winConObj.winCon(player1, player2);
                 //If sudden death is enabled at the end of a round, a message is displayed to the players.
                 if(WinCondition.getSuddenDeath(winConObj) && !suddenDeathMessageDisplayed) {
