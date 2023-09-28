@@ -11,6 +11,9 @@ class WinCondition {
     public static boolean getWinCon(WinCondition name){
         return name.winnerFound;
     }
+    public static boolean getSuddenDeath(WinCondition name) {
+        return name.suddenDeath;
+    }
 
     public boolean winCon(Player player1,Player player2) {
         pointPlayer1 = Player.getSum(player1);

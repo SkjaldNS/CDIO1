@@ -37,6 +37,7 @@ public class Game {
                     """);
             var winConObj = new WinCondition();
             boolean winnerGame = false;
+            boolean suddenDeathMessageDisplayed = false;
             while (!winnerGame){
                 
                 System.out.println(Player.getName(player1) + ", to roll the dice, press Enter");
@@ -53,6 +54,11 @@ public class Game {
                 System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+" for a total of " + dieArray[2]+".");
                 System.out.println(Player.getSum(player1)+" "+Player.getSum(player2));
                 winnerGame = winConObj.winCon(player1, player2);
+                //If sudden death is enabled at the end of a round, a message is displayed to the players.
+                if(WinCondition.getSuddenDeath(winConObj) && !suddenDeathMessageDisplayed) {
+                    System.out.println("Sudden death mode is enabled!");
+                    suddenDeathMessageDisplayed = true;
+                }
                   
             }
             if(Player.getSum(player1)> Player.getSum(player2)){
