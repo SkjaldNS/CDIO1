@@ -10,20 +10,20 @@ public class Player {
         this.sum = 0;
     }
 
-    public String getName() {
-        return (name);
+    public static String getName(Player name) {
+        return name.name;
     }
 
     public void setSum(int sum) {
         this.sum = sum;
     }
 
-    public void pointSum(int points) {
-        this.sum += points;
+    public static void pointSum(int points, Player name) {
+        name.sum += points;
     }
 
-    public int getSum() {
-        return (sum);
+    public static int getSum(Player name) {
+        return name.sum;
     }
     // Player player1 = new Player("David");
     // System.out.println(player1.getName());

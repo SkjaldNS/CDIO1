@@ -14,8 +14,8 @@ public class Die {
         return rand.nextInt(6) + 1;
     }
 
-    public static int[] getDie() {
-        var die = new Die();
+    public static int[] getDie(Die name) {
+        var die = name;
         int dieArray[] = new int[3];
         for (int i = 0; i < dieArray.length - 1; i++) {
             dieArray[i] = rollDie();
