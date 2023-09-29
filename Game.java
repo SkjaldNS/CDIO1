@@ -40,13 +40,13 @@ public class Game {
             boolean suddenDeathMessageDisplayed = false;
             while (!winnerGame){
                 
-                System.out.println(Player.getName(player1) + ", to roll the dice, press Enter:");
+                System.out.println(Player.getName(player1) + " currently has " + Player.getSum(player1) + " points. Press enter to roll the dice.");
                 scanner.nextLine();
                 Die turnDie = new Die();
                 int dieArray[] = Die.getDie(turnDie);
                 Player.pointSum(dieArray[2],player1);
                 System.out.println("You rolled " + dieArray[0] + "+" + dieArray[1]+ "(" + dieArray[2] + ") for a total of " + Player.getSum(player1) + ".\n"); 
-                System.out.println(Player.getName(player2) + ", to roll the dice, press Enter:");
+                System.out.println(Player.getName(player2) + " currently has " + Player.getSum(player2) + " points. Press enter to roll the dice.");
                 scanner.nextLine();
                 turnDie = new Die();
                 dieArray = Die.getDie(turnDie);
