@@ -73,7 +73,7 @@ public class Game {
     public static Player createPlayer(int i) {
         // Taking the names of players.
         var scannerCreate = new java.util.Scanner(System.in);
-        System.out.println("Please enter the name of player " + i + "?");
+        System.out.println("Please enter the name of player " + i);
         var name = scannerCreate.nextLine();
         Player player = new Player(name);
         return player;
