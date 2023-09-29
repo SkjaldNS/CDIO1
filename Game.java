@@ -61,6 +61,7 @@ public class Game {
                 }
                   
             }
+            scanner.close();
             if(Player.getSum(player1)> Player.getSum(player2)){
                 System.out.println(Player.getName(player1)+" won the game with "+Player.getSum(player1)+" points! "+Player.getName(player2)+" ended in second place with "+Player.getSum(player2)+" points.");
             }
